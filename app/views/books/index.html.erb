@@ -1,20 +1,22 @@
-
-<%= image_tag('loading.gif' , {:class => 'loading'} )%>
+<div class="loading">
+	<%= image_tag('loading.gif',size:'500x400')%>
+</div>
 <ul class="books" />
-
 <script type="text/javascript" charset="utf-8">
 	$.getJSON( '<%= books_path %>' ,function(data){
 		console.log(data);
-		$('.loading').hide(0);
-		$.each(data,function(i,v){
-			var tmp = '<li class="book">';
-			tmp += '<div class="thumbnail">';
-			tmp += '<a href="/books/'+(i+1)+'"><img alt="1" height="282" src="/assets/'+v.image+'" width="200"></a>';
-			tmp += '</div>';
-			tmp += '<h1><a href="/books/'+(i+1)+'">'+v.title+'</a></h1>';
-			tmp += '<p class="detail">'+v.description+'</p>';
-			tmp += '</li>';
-			$('.books').append(tmp);
-		});
+		setTimeout(function(){
+			$('.loading').hide(0);
+			$.each(data,function(i,v){
+				var tmp = '<li class="book">';
+				tmp += '<div class="thumbnail">';
+				tmp += '<a href="/books/'+(i+1)+'"><img alt="1" height="282" src="/assets/'+v.image+'" width="200"></a>';
+				tmp += '</div>';
+				tmp += '<h1><a href="/books/'+(i+1)+'">'+v.title+'</a></h1>';
+				tmp += '<p class="detail">'+v.description+'</p>';
+				tmp += '</li>';
+				$('.books').append(tmp);
+			});
+		}, 1000);
 	});
 </script>
