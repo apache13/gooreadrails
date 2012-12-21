@@ -1,4 +1,12 @@
 Gooreadrails::Application.routes.draw do
+  get "books/index"
+
+  resources :items
+
+  resources :books
+
+  get "book/index"
+
   get "bookdetail/index"
 
   get "gooread/index"
