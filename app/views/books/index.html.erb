@@ -1,13 +1,20 @@
-<ul class="books">
-	<% @books.each do |book| %>
-	<li class="book">
-		<div class="thumbnail">
-			<%= image_tag book.image , :size => '200x282' %>
-		</div>
-		<h1><%= book.title %></h1>
-		<p class="detail">
-			<%= book.description %>
-		</p>
-	</li>
-	<% end %>
-</ul>
+
+<%= image_tag('loading.gif' , {:class => 'loading'} )%>
+<ul class="books" />
+
+<script type="text/javascript" charset="utf-8">
+	$.getJSON( '<%= books_path %>' ,function(data){
+		console.log(data);
+		$('.loading').hide(0);
+		$.each(data,function(i,v){
+			var tmp = '<li class="book">';
+			tmp += '<div class="thumbnail">';
+			tmp += '<a href="/books/'+(i+1)+'"><img alt="1" height="282" src="/assets/'+v.image+'" width="200"></a>';
+			tmp += '</div>';
+			tmp += '<h1><a href="/books/'+(i+1)+'">'+v.title+'</a></h1>';
+			tmp += '<p class="detail">'+v.description+'</p>';
+			tmp += '</li>';
+			$('.books').append(tmp);
+		});
+	});
+</script>

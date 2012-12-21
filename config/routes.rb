@@ -5,7 +5,7 @@ Gooreadrails::Application.routes.draw do
 
   resources :books
 
-  get "book/index"
+
 
   get "bookdetail/index"
 

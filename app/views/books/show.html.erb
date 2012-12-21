@@ -1,0 +1,39 @@
+<div class="bookpicture">
+	<%= image_tag @book.image , size: '200x282' %>
+</div>
+<div class="bookdetail">
+	<ul>
+		<li>
+			<h1><%= @book.title %></h1>
+		</li>
+		<li>
+			<b>Author : </b> Eddy Chou
+		</li>
+		<li>
+			<b>Description : </b> <%= @book.description %>
+		</li>
+		<li>
+			<b>Price : </b> <%= @book.price %>
+		</li>
+		<li>
+			<b>Status : </b> Single
+		</li>
+	</ul>
+</div>
+
+<div class="clear"></div>
+
+<div class="borrow_status">
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Borrow</th>
+			<th>Return</th>
+		</tr>
+		<tr>
+			<td>Eddy</td>
+			<td>10/12/2012</td>
+			<td>21/12/2012</td>
+		</tr>
+	</table>
+</div>

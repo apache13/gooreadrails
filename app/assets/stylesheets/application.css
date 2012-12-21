@@ -57,6 +57,7 @@ body {
 .books .book .detail {
 	line-height: 1.5em;
 }
+
 .clear {
 	display: block;
 	clear: both;
@@ -68,6 +69,7 @@ body {
 	float: left;
 	width: 400px;
 }
+
 .bookdetail li {
 	display: block;
 }
